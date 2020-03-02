@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>zad4b</title>
+</head>
+
+<body>
+    <p id="pe"></p>
+<a href="http://www.onet.pl">onet </a>
+<a href="http://www.wp.pl">wp</a>
+
+<script>
+    var x = document.getElementsByTagName("a");
+    
+    
+    document.getElementById("pe").innerHTML="[";
+    for (var i=0;i<x.length;i++)
+    {
+        document.getElementById("pe").innerHTML+="['"+x[i].href+"','"+x[i].innerHTML+"'],";
+    }
+    
+    document.getElementById("pe").innerHTML+="]";
+</script>
+</body>
+
+</html>

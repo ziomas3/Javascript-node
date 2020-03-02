@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> Lista 3 Zad 2c</title>
+	</head>
+	<body>
+			<h1>cos</h1>
+        <script>
+	   function elements(x)
+	   {
+		var t=document.querySelectorAll("h1")	
+		for(var i=0;i<t.length;i++) 
+		yield t[i];  
+	   };
+	   for (x of arguments)
+	   x.innerHTML+="!";
+	</script>
+	
+	</body>
+</html>

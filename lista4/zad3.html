@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <STYLE> 
+        body
+        {
+            font-size:20px;
+            background-image: url("http://celebwallpapers.net/wp-content/uploads/2017/11/hd-space-wallpapers-cool-space-wallpaper-hd-with-hd-windows-wallpaper-full-hd-with-of-hd-space-wallpapers.jpg");
+        }
+           
+        #main 
+        {
+            border:5px solid blue;
+            width:300px;
+            margin:auto;
+            margin-top: 200px;
+        }
+        input 
+        {
+            display:block;
+            margin:10px auto;
+        }
+        button
+        {
+            width:20%;
+            padding:15px;
+            margin:5px
+        }
+    </STYLE>
+</head>
+<body >
+<div id="main">
+    <input id="PoleTekst" type="text">
+    <button id = "1" onclick="nButton(1);">1</button>
+    <button id = "2" onclick="nButton(2);">2</button>
+    <button id = "3" onclick="nButton(3);">3</button>
+    <button id = "minus" onclick="miButton()">-</button>
+    <button id = "4" onclick="nButton(4);">4</button>
+    <button id = "5" onclick="nButton(5);">5</button>
+    <button id = "6" onclick="nButton(6);">6</button>
+    <button id = "plus" onclick="pButton()">+</button>
+    <button id = "7" onclick="nButton(7);">7</button>
+    <button id = "8" onclick="nButton(8);">8</button>
+    <button id = "9" onclick="nButton(9);">9</button>
+    <button id = "razy" onclick="muButton()">*</button>
+    <button id = "C" onclick="cButton()">C</button>
+    <button id = "0" onclick="nButton(0);">0</button>
+    <button id = "podziel" onclick="dButton()">/</button>
+    <button id = "licz" onclick="eqButton()">=</button>
+</div>
+
+
+<script>
+function nButton(num)
+{
+    document.getElementById("PoleTekst").value += num;
+}
+
+function cButton()
+{
+    document.getElementById("PoleTekst").value ='';
+}
+
+function pButton()
+{
+    document.getElementById("PoleTekst").value += '+';
+}
+
+function miButton()
+{
+    document.getElementById("PoleTekst").value += '-';
+}
+
+function muButton()
+{
+    document.getElementById("PoleTekst").value += '*';
+}
+
+function dButton()
+{
+    document.getElementById("PoleTekst").value += '/';
+}
+
+function eqButton()
+{
+    document.getElementById("PoleTekst").value = eval(document.getElementById("PoleTekst").value);
+}
+
+</script>
+
+</body>
+</html>

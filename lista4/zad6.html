@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+<style>
+*{font-size: 20px}
+#rys{width:300px; height:300px; margin: auto; border:lpx grey solid}
+#rys{display:block;}
+input{float:left;clear:both}
+#przycisk2{clear:none};
+	
+</style>
+<script language="JavaScript">
+		
+	function F(){
+		var t=document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+		var rys=document.getElementById('rys');
+		var malarz=rys.getContext("2d");
+		
+		//malarz.beginPath();
+		//malarz.moveTo(10,10);
+		//malarz.lineTo(110,110);
+		//malarz.lineTo(210,110);
+		//malarz.lineTo(310,110);
+		//malarz.lineTo(310,10);
+		//malarz.stroke();
+		//malarz.fill();
+		
+		var fig=[
+			{name:"Punkt",x:1,y:3},
+			{name:"Kolo",x:100,y:140,r:4,color:"green"},
+			{name:"Prostokat",x:50,y:60,a:20,b:40,color:"red"},
+			{name:"Wielokat",x:[15,23,35,46,17],y:[15,46,27,86,90],color:"pink"},
+		];
+		
+		
+		for(let p of fig)
+		{
+			if (p.name=="Prostokat")
+			{
+				malarz.beginPath();
+				malarz.strokeRect(p.x, p.y, p.a, p.b);
+			}
+			if (p.name=="Punkt")
+			{
+				malarz.beginPath();
+				malarz.strokeRect(p.x, p.y, 1, 1);
+			}
+			if (p.name=="Kolo")
+			{
+				malarz.beginPath();
+				malarz.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+				malarz.fill();
+			}
+			if (p.name=="Wielokat")
+			{
+				malarz.beginPath();
+				malarz.moveTo(p.x[0],p.x[0]);
+				for (var sad=1; sad<=p.x.length;sad++)
+				{
+					malarz.lineTo(p.x[sad],p.y[sad]);	
+					console.log(p.x[sad]);	
+				}
+				malarz.stroke();
+				malarz.fill();			
+			}
+		}
+	}
+		function dodaj(form)
+		{
+			var rys=document.getElementById('rys');
+			var malarz=rys.getContext("2d");
+			console.log(form.nazwa.value);
+			if (form.nazwa.value=="Prostokat")
+			{
+				malarz.strokeRect(parseInt(form.x.value), parseInt(form.y.value), parseInt(form.a.value), parseInt(form.b.value));
+			}
+			if (form.nazwa.value=="Punkt")
+			{
+				malarz.strokeRect(parseInt(form.x.value), parseInt(form.y.value), 1, 1);
+			}
+			if (form.nazwa.value=="Kolo")
+			{
+				malarz.beginPath();
+				malarz.arc(parseInt(form.x.value), parseInt(form.y.value), parseInt(form.r.value), 0, Math.PI*2, true);
+				malarz.fill();
+			}
+			if (form.nazwa.value=="Wielokat")
+			{
+				malarz.beginPath();
+				malarz.moveTo(parseInt(form.x.value[0]),parseInt(form.y.value[0]));
+				for (var sad=1; sad<=form.x.length;sad++)
+				{
+					malarz.lineTo(parseInt(form.x.value[sad]),parseInt(form.y.value[sad]));	
+					console.log(parseInt(form.x[sad].value));	
+				}
+				malarz.stroke();
+				malarz.fill();			
+			}
+		
+		}
+		function usun(form)
+		{
+			form.nazwa.value="";
+			form.x.value="";
+			form.y.value="";
+			form.r.value="";
+			form.a.value="";
+			form.b.value="";
+
+		}
+		
+	
+	
+</script>
+</head>
+<body onload="F()">
+<canvas id="rys" height=400 width=400>
+Twoja przegladarka. ssie
+</canvas>
+<form>
+<input name='nazwa' placeholder=nazwa>
+<input name='x' placeholder=x>
+<input name='y' placeholder=y>
+<input name='r' placeholder=r>
+<input name='b' placeholder=a>
+<input name='a' placeholder=b>
+<input type="button" id="przycisk1" value="wyslij" onClick="dodaj(this.form)">
+<input type="button" id="przycisk2" value="anuluj" onClick="usun(this.form)">
+</form>
+</body>
+</html>

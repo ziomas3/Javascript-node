@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>zad4c</title>
+</head>
+
+<body>
+    <p id="pe"></p>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg" alt="kot" width="420" height="420">
+    
+    <img src="https://www.koty.pl/wp-content/uploads/2017/11/shutterstock_684452296-e1511112417106-864x575.jpg" alt="kot2" width="1200" height="800">
+
+<script>
+    var x = document.getElementsByTagName("img");
+    
+    document.getElementById("pe").innerHTML="[";
+    for (var i=0;i<x.length;i++)
+    {
+        document.getElementById("pe").innerHTML+=x[i].src+"   ,   ";
+    }
+    document.getElementById("pe").innerHTML+="]";
+</script>
+</body>
+
+</html>
